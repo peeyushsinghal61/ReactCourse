@@ -1,0 +1,28 @@
+// createElement , getElementById , appendChild -- all these function are provided by browser to javascript
+// browser only understand js not react 
+
+// using these react CDN links we can configure react in our projects.
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+// react is having core react algorithm.
+// react-dom is library is used to modify the dom. it is a bridge which will connect react with dom.
+// react needs a root element where it will do all the dom manipulation and redering.
+
+// createElement in react is a core thing of the react. so it comes from react library.
+// but creating a root element and rendering something inside it is job to react-dom library. or we can say creating an element and put it inside dom is job of react-dom. Everything will render inside this root element.
+
+// <div id="root">Hello world!!</div>
+
+const heading = React.createElement(
+  "h1",
+  { id: "heading", style: { color: "pink"} },
+  "Hello world from react!"
+);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
+
+what ever we are having in div will be replaced by the element passed in render method.
+
+
+// JSX -
