@@ -1,0 +1,20 @@
+{
+  "name": "episode2",
+  "version": "1.0.0",
+  "description": "configure npm in our project.",
+    "scripts": {
+    "test": "jest",
+    "startInDev": "parcel index.html",
+    "startInProd": "parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
