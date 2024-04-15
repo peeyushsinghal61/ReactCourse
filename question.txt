@@ -1,0 +1,2 @@
+what is CDN?
+what is crossorigin?
