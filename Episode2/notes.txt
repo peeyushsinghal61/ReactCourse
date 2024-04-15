@@ -1,0 +1,77 @@
+//npm --> manages the packages. It is a package manager or repo. that have alot of packages.
+
+//package.json --> have the meta data about our project.
+
+//package-lock.json-->  have the info about exact version of our dependencies and  transitive dependencies.
+
+//bundler--> A bundler is a tool that takes your JavaScript, CSS, and other assets, and packages them together into optimized bundles(cached,copmpresed, cleaned ) before code served to production. ex - webpack.
+
+//bundler packages our app properly so that it can be shift to production.
+
+// create-react-app command uses webpack & babel bundler behind it.
+
+// we will use parcel bundler.
+
+// there are two types of dependencies in our app.
+1. dev dependencies - It is generally required in development phase. // npm i -D parcel  here "-D" denoted dev dependency.
+2. normal dependencies - They are required in both development and production phase.
+
+// here parcel is a dev dependency verson is 2.12.0 
+"devDependencies": {
+    "parcel": "^2.12.0"
+  }
+what is difference between (~tilde) and (^carot)?
+NPM versions follow a three-number format, separated by dots. The leftmost number signifies the major release, the second one represents the minor release, and the third number denotes the patch release of the package.
+Syntax: The syntax of the npm version looks like the following.
+Major.Minor.Patch
+
+Tilde (~) notation:
+The tilde (~) notation is employed to match the latest patch version while freezing the major and minor versions. This notation is useful for automatically accepting bug fixes, considering that patch updates primarily address bugs.
+
+Example: The ~1.2.0 will update all the future patch updates. We have to write just ~1.2.0 and all the next patch update dependencies. For example, 1.2.1, 1.2.2, 1.2.5……………1.2.x.
+Note: Patch updates are very small security changes in a package that is why the ~version is approximately equivalent to the version.
+
+Caret (^) notation:
+It automatically updates both minor and patch updates.
+
+Example: The ^1.2.4 will update all the future Minor and patch updates, for example, ^1.2.4 will automatically change the dependency to 1.x.x if any update occurs. 
+
+
+// transitive dependencies --> dependencies of our dependencies which are in package.json
+// we should not push node modules to git or production. But we should push package.json && package-lock.json.
+// If we have push package.json && package-lock.json then we regenerate node_modules.
+
+
+// to install/update/uninstall a package use npm.
+// to execute a package use npx.
+// CDN links are not a good way to bring react & ReactDOM in out project. It is prefered to have it installed in our node_modules using npm. Beacause in case of CDN links we have make a network request which is time consuming and  costly. Also every time new version of react comes in market we have to make chnages in url of CDN.
+
+// import and export are not present in normal browser javascript. we need to add type="module" attribute to make it understandable to browser.
+ <script type="module" src="./App.js"></script> 
+
+// Parcel:
+1. Dev bulid 
+2. Local server (host development to local server) 
+3. refreshing page automatically (HMR- hot module replacement[It allows all kinds of modules to be updated at runtime without the need for a full refresh.]).
+4. file watching algorithm written in cpp using that parcel check for changes in our application start rebuild.
+5. Faster builds because it uses caching. 
+6. image optimization
+7. bundling our files (for prod build).
+8. compress our files.(for prod build).
+9. code splitting
+10. Differential Bundling. --> support for older browser. (diffrent bundle for diff browser and theri diff versions)
+11. content hashing
+12. Diagnostic of our app
+13. Tree shaking -remove unused code.
+14. create diffrent bundle for dev and prod.
+
+// react helps inm aking our application fast but these bundlers like parcel are aslo making it fast.
+// when we write npx create-react-app it is already having bundle inside it.
+
+// npx parcel build index.html  -----------> create a prod build 
+// npx parcel index.html  -----------> create a dev build and host it on localhost
+// on above build command it will create 2 new folders (.parcel-cache,dist). dist contains the compressed version of our code and using dist and .parcel-cache it becomes easy to build fast.
+
+// Using browserslist package we can setup what all browsers our app will support. We need make some configuration inside package-lock.json related to browserslist.
+"browserslist":["last 5 chrome version"]  ----> it does not mean it will not work with other browser. It just  mean that it will work 100% of the times with last 2 version of chrome. Others alsp=o it will support.
+parcel will create separate bundles for all the written browser configurations.
